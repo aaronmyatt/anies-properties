@@ -1,0 +1,8 @@
+
+
+nav.flex.justify-between.h-20.items-center(class="md:px-6")
+    div.flex
+        a(href="/") LOGO
+    .flex.space-x-8
+        each link in ['About','Listings','Sellers','Blog','Client Resources','Contact']
+            a(href="/about") #{link}

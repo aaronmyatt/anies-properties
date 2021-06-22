@@ -15,7 +15,8 @@ html(lang="en")
     script(src="https://app.storyblok.com/f/storyblok-v2-latest.js" id="storyblokBridge")
     script(src="/js/alpine.js" defer)
     block head-scripts
-  body 
+  body
+    include ./navbar
     block content
     
     script(id=ALPINE_DATA content-type="application/json")
