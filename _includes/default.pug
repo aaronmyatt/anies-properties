@@ -28,7 +28,11 @@ html(lang="en")
       document.addEventListener('alpine:init', function() {
         if(window.rawData){
           var data = window.rawData
-          Alpine.store(data.slug, data.content);
+
+          if(data.content.component === 'page'){
+            Alpine.store(data.slug, data.content);
+            Alpine.store('gallery', data.content.gallery || []);
+          }
         }
       });
     script(src="/js/storyblok-bridge.js")

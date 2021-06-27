@@ -1,0 +1,48 @@
+//- Inspiration: https://tailwindcomponents.com/component/click-through-image-gallery
+
+mixin leftRightGalleryNavContainer(leftOrRight)
+    - var position = leftOrRight === 'left' ? 'left-0' : 'right-0'
+    - var wrapperClasses=`absolute flex justify-center items-center inset-y-0 ${position} bg-white bg-opacity-20 cursor-pointer`
+    div(class=`${wrapperClasses} hover:bg-opacity-40` @click=`updateSelectedImage(image, '${leftOrRight}')`)
+        span.w-12.h-12
+            block
+
+.flex.flex-col.items-center(
+    x-data=`{images: [], selectedImage: [], 
+        updateSelectedImage: function(image, leftOrRight) {
+            let index = this.images.indexOf(image)
+            if(leftOrRight === 'left' && index === 0){
+                index = this.images.length
+            }
+            if(leftOrRight === 'right' && index === this.images.length-1){
+                index = -1
+            }
+            if(leftOrRight === 'left'){
+                this.selectedImage = this.images.slice(index-1, index)
+            } else {
+                this.selectedImage = this.images.slice(index+1, index+2)
+            }
+        }}`
+    x-init="images = $store.gallery; selectedImage = $store.gallery.slice(0, 1)"
+)
+
+    template(
+        x-for="image in selectedImage" :key="image.id"
+    )
+        .relative.flex.flex-col.items-center
+            img(:src="image.filename" width="500" height="500"
+            )
+            +leftRightGalleryNavContainer('right')
+                include ./svg/chevron-right
+            +leftRightGalleryNavContainer('left')
+                include ./svg/chevron-left
+            p(x-text="image.title")
+    .flex
+        template(x-for="image in images" :key="image.id")
+            div(
+                @click="selectedImage.pop(); selectedImage.push(image)"
+                class="hover:opacity-100"
+                :class="{'opacity-90': selectedImage.includes(image), 'opacity-40': !selectedImage.includes(image) }"
+            )
+                //- TODO: implement $sb-image magic helper
+                img(:src="image.filename" width="100" height="100")
