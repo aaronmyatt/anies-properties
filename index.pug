@@ -3,39 +3,52 @@ extends _includes/default.pug
 block title
   | #{home.content.seo.title}
 
+block append head
+  style
+    |.absolutely-centered {
+    |  position: absolute;
+    |  top: 50%;
+    |  left: 50%;
+    |  transform: translate(-50%, -50%);
+    |}
+
 block content
-  #hero.flex.items-center.justify-center.bg-purple-300(class="h-[50vh]")
-    h1 Anies Properties
+  .space-y-8
+    section#hero.w-full.relative(class="h-[50vh]")
+        img.h-full.w-full.object-cover(src=home.content.hero.filename)
+        p.p-4.bg-white.text-center.absolutely-centered Bringing Aniesness To Real Estate
 
-  #quote.h-64.flex.items-center.justify-center.bg-gray-500.text-white 
-    h2 I help people buy, sell and rent their dream properties.
 
-  - 
-    var components = { 
-      TEXT: 'JustText', 
-      HEADER_AND_TEXT: 'TextWithHeader', 
-      IMAGE: 'Image' 
-    }
-  #content.container.mx-auto
-    .flex.flex-wrap.mx-8
+    section#quote.h-64.flex.items-center.justify-center.bg-gray-500.text-white 
+      h2 I help people buy, sell and rent their dream properties.
 
-      each section in home.content.body
-        each content in section.content
-          div(class="w-1/2")
-          
-            case content.component
-              when components.TEXT
-                p= content.content
-              when components.HEADER_AND_TEXT
-                div
-                  h3= content.heading
+    - 
+      var components = { 
+        TEXT: 'JustText', 
+        HEADER_AND_TEXT: 'TextWithHeader', 
+        IMAGE: 'Image' 
+      }
+    section#content.container.mx-auto
+      .flex.flex-wrap.mx-8
+
+        each section in home.content.body
+          each content in section.content
+            div(class="w-1/2")
+            
+              case content.component
+                when components.TEXT
                   p= content.content
-              when components.IMAGE
-                img(src=content.adv.image width=800 height=500)
+                when components.HEADER_AND_TEXT
+                  div
+                    h3= content.heading
+                    p= content.content
+                when components.IMAGE
+                  img(src=content.adv.image width=800 height=500)
 
-  #social
+    section#social
 
-  #gallery
+    section#gallery
+      include ./_includes/gallery
 
 block alpine-data
   | window.rawData = !{JSON.stringify(home)}
