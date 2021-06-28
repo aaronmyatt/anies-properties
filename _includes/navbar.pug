@@ -1,8 +1,12 @@
 
 
-nav.hidden.justify-between.h-20.items-center(class="md:px-6 md:flex")
-    div.flex
+nav.hidden.justify-between.h-16.items-center(class="my-2 md:px-6 md:flex")
+    div
         a(href="/") LOGO
-    .flex.space-x-8
+    div.flex.h-full.my-2
         each link in ['About','Listings','Sellers','Blog','Client Resources','Contact']
-            a(href="/about") #{link}
+            a.inline-flex.items-center.px-2.text-center(
+                href="/about"
+                class="xl:px-4 hover:bg-gray-300 hover:text-white hover:shadow hover:rounded"
+            ) 
+                span.uppercase.tracking-widest.font-semibold(class="text-sm xl:text-base") #{link}

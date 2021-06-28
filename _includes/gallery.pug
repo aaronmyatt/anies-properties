@@ -30,13 +30,13 @@ mixin leftRightGalleryNavContainer(leftOrRight)
         x-for="image in selectedImage" :key="image.id"
     )
         .relative.flex.flex-col.items-center
-            img(:src="image.filename" width="500" height="500"
+            img(:src="image.filename" width="1000" height="1000"
             )
             +leftRightGalleryNavContainer('right')
                 include ./svg/chevron-right
             +leftRightGalleryNavContainer('left')
                 include ./svg/chevron-left
-            p(x-text="image.title")
+            p.text-xl.py-2(x-text="image.title")
     .flex
         template(x-for="image in images" :key="image.id")
             div(
@@ -45,4 +45,4 @@ mixin leftRightGalleryNavContainer(leftOrRight)
                 :class="{'opacity-90': selectedImage.includes(image), 'opacity-40': !selectedImage.includes(image) }"
             )
                 //- TODO: implement $sb-image magic helper
-                img(:src="image.filename" width="100" height="100")
+                img(:src="image.filename" width="150" height="150")
