@@ -15,10 +15,11 @@ html(lang="en")
     script(src="https://app.storyblok.com/f/storyblok-v2-latest.js" id="storyblokBridge")
     script(src="/js/alpine.js" defer)
     block head-scripts
-  body
+  body.bg-gray-100
     include ./navbar
     block content
     include ./footer
+    include ./mobilenav
     
     script(id=ALPINE_DATA content-type="application/json")
       block alpine-data

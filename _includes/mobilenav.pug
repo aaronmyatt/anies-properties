@@ -1,0 +1,41 @@
+- var svgClasses = "h-8 w-8 inline-block"
+- var infoIcon = `<svg class="${svgClasses}" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>`
+
+- 
+    var navItems = [
+        {
+            label: 'About',
+            href: 'about',
+            icon: infoIcon
+        },
+        {
+            label: 'Listings',
+            href: 'listings',
+            icon: infoIcon
+        },
+        {
+            label: 'Sellers',
+            href: 'sellers',
+            icon: infoIcon
+        },
+        {
+            label: 'Blog',
+            href: 'blog',
+            icon: infoIcon
+        },
+        {
+            label: 'Resources',
+            href: 'resources',
+            icon: infoIcon
+        },
+        {
+            label: 'Contact',
+            href: 'contact',
+            icon: infoIcon
+        }]
+nav#mobile-nav.bg-white.fixed.inset-x-0.bottom-0.z-10.shadow(class="md:hidden")
+    #tabs.flex.justify-between
+        each item in navItems
+            a.w-full.text-center(class="hover:text-indigo-400" href=item.href)
+                |!{item.icon}
+                span.block.text-xs #{item.label}

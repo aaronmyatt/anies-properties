@@ -1,0 +1,8 @@
+extends ../_includes/default.pug
+
+block content
+    include ../_includes/mobilenav.pug
+  
+
+block alpine-data
+  | window.rawData = !{JSON.stringify(home)}

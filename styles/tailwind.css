@@ -659,6 +659,10 @@ video {
   }
 }
 
+.fixed {
+  position: fixed;
+}
+
 .absolute {
   position: absolute;
 }
@@ -672,12 +676,25 @@ video {
   bottom: 0px;
 }
 
+.inset-x-0 {
+  left: 0px;
+  right: 0px;
+}
+
 .left-0 {
   left: 0px;
 }
 
 .right-0 {
   right: 0px;
+}
+
+.bottom-0 {
+  bottom: 0px;
+}
+
+.z-10 {
+  z-index: 10;
 }
 
 .mx-auto {
@@ -694,12 +711,28 @@ video {
   margin-top: 2.5rem;
 }
 
+.mt-24 {
+  margin-top: 6rem;
+}
+
+.mt-16 {
+  margin-top: 4rem;
+}
+
 .block {
   display: block;
 }
 
+.inline-block {
+  display: inline-block;
+}
+
 .flex {
   display: flex;
+}
+
+.hidden {
+  display: none;
 }
 
 .h-\[50vh\] {
@@ -722,6 +755,10 @@ video {
   height: 3rem;
 }
 
+.h-8 {
+  height: 2rem;
+}
+
 .h-20 {
   height: 5rem;
 }
@@ -740,6 +777,10 @@ video {
 
 .w-12 {
   width: 3rem;
+}
+
+.w-8 {
+  width: 2rem;
 }
 
 .transform {
@@ -792,6 +833,11 @@ video {
   background-color: rgba(107, 114, 128, var(--tw-bg-opacity));
 }
 
+.bg-gray-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
+}
+
 .bg-opacity-20 {
   --tw-bg-opacity: 0.2;
 }
@@ -813,13 +859,14 @@ video {
   text-align: center;
 }
 
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
 .text-white {
   --tw-text-opacity: 1;
   color: rgba(255, 255, 255, var(--tw-text-opacity));
-}
-
-.opacity-50 {
-  opacity: 0.5;
 }
 
 .opacity-90 {
@@ -830,8 +877,18 @@ video {
   opacity: 0.4;
 }
 
+.shadow {
+  --tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
 .hover\:bg-opacity-40:hover {
   --tw-bg-opacity: 0.4;
+}
+
+.hover\:text-indigo-400:hover {
+  --tw-text-opacity: 1;
+  color: rgba(129, 140, 248, var(--tw-text-opacity));
 }
 
 .hover\:opacity-100:hover {
@@ -839,6 +896,14 @@ video {
 }
 
 @media (min-width: 768px) {
+  .md\:flex {
+    display: flex;
+  }
+
+  .md\:hidden {
+    display: none;
+  }
+
   .md\:px-6 {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
