@@ -16,14 +16,21 @@ block content
   .space-y-8
     section#hero.w-full.relative(class="h-[40vh] md:h-[50vh]")
         img.h-full.w-full.object-cover(src=home.content.hero.filename)
-        h1.p-4.bg-white.text-center.absolutely-centered.opacity-80.text-xl.uppercase.tracking-widest.font-semibold(
+        .p-4.bg-white.text-center.absolutely-centered.opacity-80.rounded-lg(
+          class="font-serif shadow"
+        )
+          h1.font-semibold.text-xl.uppercase.tracking-widest.font-semibold(
           class="font-serif rounded-lg shadow md:text-3xl"
         )
-          | Bringing Aniesness To Real Estate
+            | #{home.content.hero_text}
+          h3.font-semibold.text-base.uppercase.tracking-widest.font-semibold(
+          class="font-serif rounded-lg shadow md:text-xl"
+        )
+            | #{home.content.hero_sub_text}
 
     section#quote.h-32.flex.flex-col.items-center.justify-center.text-center(class="md:h-64")
       h2.px-4.text-2xl.tracking-wider.font-bold(class="font-serif md:text-3xl") 
-        | I help people buy, sell and rent their dream properties.
+        | #{home.content.quote_section}
       .mt-12.text-gray-800.border-t-2(class="w-10/12")
         hr
 
