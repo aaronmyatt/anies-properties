@@ -41,7 +41,7 @@ mixin leftRightGalleryNavContainer(leftOrRight)
         template(x-for="image in images" :key="image.id")
             div(
                 @click="selectedImage.pop(); selectedImage.push(image)"
-                class="hover:opacity-100"
+                class="cursor-pointer hover:opacity-100"
                 :class="{'opacity-90': selectedImage.includes(image), 'opacity-40': !selectedImage.includes(image) }"
             )
                 //- TODO: implement $sb-image magic helper
