@@ -1,7 +1,6 @@
 require('dotenv').config();
 
 const htmlmin = require('html-minifier')
-const pathPrefix = process.env.ELEVENTY_PRODUCTION ? '/anies-properties/' : '/'
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.setTemplateFormats("pug,css");
@@ -31,8 +30,4 @@ module.exports = function (eleventyConfig) {
 
     return content
   })
-
-  return {
-    pathPrefix
-  }
 }
