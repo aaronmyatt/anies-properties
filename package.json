@@ -4,7 +4,8 @@
     "watch:tailwind": "tailwind -o styles/tailwind.css -w",
     "start": "run-p watch:*",
     "build:eleventy": "ELEVENTY_PRODUCTION=true eleventy",
-    "build": "run-s build:*"
+    "build": "run-s build:*",
+    "deploy": "npm run build && push-dir --dir=_site --branch=gh-pages --cleanup"
   },
   "devDependencies": {
     "@11ty/eleventy": "^0.12.1",
@@ -22,6 +23,7 @@
     "jsdom-quokka-plugin": "^1.0.16",
     "npm-run-all": "^4.1.5",
     "postcss-cli": "^8.3.1",
+    "push-dir": "^0.4.1",
     "tailwindcss": "^2.2.2"
   },
   "quokka": {
