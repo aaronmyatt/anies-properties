@@ -979,8 +979,8 @@ video {
   height: 100%;
 }
 
-.h-32 {
-  height: 8rem;
+.h-24 {
+  height: 6rem;
 }
 
 .h-12 {
@@ -995,16 +995,8 @@ video {
   height: 4rem;
 }
 
-.h-24 {
-  height: 6rem;
-}
-
 .w-full {
   width: 100%;
-}
-
-.w-10\/12 {
-  width: 83.333333%;
 }
 
 .w-3\/4 {
@@ -1476,14 +1468,6 @@ video {
 
   .md\:h-\[50vh\] {
     height: 50vh;
-  }
-
-  .md\:h-64 {
-    height: 16rem;
-  }
-
-  .md\:h-32 {
-    height: 8rem;
   }
 
   .md\:h-36 {
