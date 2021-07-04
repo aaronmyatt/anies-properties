@@ -1,7 +1,7 @@
 {
   "scripts": {
     "watch:eleventy": "eleventy --serve",
-    "watch:tailwind": "tailwind -o styles/tailwind.css -w",
+    "watch:tailwind": "tailwind -o pages/styles/tailwind.css -w",
     "start": "run-p watch:*",
     "build:eleventy": "ELEVENTY_PRODUCTION=true eleventy",
     "build": "run-s build:*",

@@ -1,0 +1,12 @@
+---
+pagination:
+    data: listings
+    size: 1
+    alias: listing
+permalink: '| #{ listing.full_slug }/'
+---
+extends ../_includes/default.pug
+
+
+block content
+  h1=listing.content.name
