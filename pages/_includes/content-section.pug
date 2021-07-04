@@ -1,0 +1,24 @@
+- 
+    var components = { 
+        TEXT: 'JustText', 
+        HEADER_AND_TEXT: 'TextWithHeader', 
+        IMAGE: 'Image' 
+    }
+div(x-data)
+    template(x-for="section in $store.page.body")
+        .flex.flex-wrap
+            template(x-for="item in section.body")
+                div.prose-md(class="md:prose-xl" :class=`{
+                    'md:w-1/2': section.body.length > 1
+                }`)
+                
+                    template(x-if=`item.component === '${components.TEXT}'`) 
+                        p.whitespace-pre-wrap.p-4(class="mx-2 md:mx-8" x-text=`item.body`)
+
+                    template(x-if=`item.component === '${components.HEADER_AND_TEXT}'`)
+                        div.p-4(class="mx-2 md:mx-8")
+                            h3(x-text="item.heading") 
+                            p.whitespace-pre-wrap(x-text="item.body")
+
+                    template(x-if=`item.component === '${components.IMAGE}'`)
+                        img.p-1.rounded(:src='item.adv.image' width=800 height=500)

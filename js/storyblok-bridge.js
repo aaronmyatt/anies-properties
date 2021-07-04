@@ -32,6 +32,6 @@ ready(loadBridge(function(){
 
   storyblokInstance.on('input', function(event){
     console.log(event)
-    Alpine.store(event.story.slug, event.story.content)
+    Alpine.store('page', event.story.content)
   })
 }))

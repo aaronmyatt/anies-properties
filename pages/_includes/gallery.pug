@@ -7,7 +7,7 @@ mixin leftRightGalleryNavContainer(leftOrRight)
         span.w-12.h-12
             block
 
-.flex.flex-col.items-center(
+.flex.flex-col.items-center.justify-center(
     x-data=`{images: [], selectedImage: [], 
         updateSelectedImage: function(image, leftOrRight) {
             let index = this.images.indexOf(image)

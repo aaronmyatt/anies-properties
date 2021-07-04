@@ -7,6 +7,42 @@ permalink: '| #{ listing.full_slug }/'
 ---
 extends ../_includes/default.pug
 
+block title
+  | #{listing.content.seo.title || listing.content.name}
 
 block content
-  h1=listing.content.name
+  .space-y-8
+    section#gallery
+      include ../_includes/gallery
+    section#home-details(x-data)
+      h1.font-semibold.text-xl.uppercase.tracking-widest.font-semibold.text-center(
+          class="font-serif md:text-3xl"
+          x-text="$store.page.name"
+        )
+      .flex.space-x-4.justify-center.uppercase.text-xs.mt-2(class="sm:text-sm")
+        div.space-x-1
+          span.font-bold(x-text="$store.page.beds")
+          span.font-thin.tracking-wider Beds
+        span |
+        div.space-x-1
+          span.font-bold(x-text="$store.page.baths")
+          span.font-thin.tracking-wider Baths
+        span |
+        div.space-x-1
+          span.font-bold(x-text="$store.page.parking")
+          span.font-thin.tracking-wider Parking
+        span |
+        div.space-x-1
+          span.font-bold(x-text="$store.page.sqft")
+          span.font-thin.tracking-wider SQFT
+        span |
+        div
+          span $
+          span(x-text="$store.page.price")
+    
+    section#body.mx-auto(class="w-10/12")
+      include ../_includes/content-section
+
+
+block alpine-data
+  | window.rawData = !{JSON.stringify(listing)}

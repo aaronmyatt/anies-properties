@@ -34,8 +34,8 @@ html(lang="en")
         if(window.rawData){
           var data = window.rawData
 
-          if(data.content.component === 'page'){
-            Alpine.store(data.slug, data.content);
+          if(['page', 'listing'].includes(data.content.component)){
+            Alpine.store('page', data.content);
             Alpine.store('gallery', data.content.gallery || []);
           }
         }
