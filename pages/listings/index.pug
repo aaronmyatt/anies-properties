@@ -1,63 +1,64 @@
+---
+pagination:
+    data: listings
+    size: 10
+---
 extends ../_includes/default.pug
 
 block title
-  | #{home.content.seo.title}
-
-block append head
-  style
-    |.absolutely-centered {
-    |  position: absolute;
-    |  top: 50%;
-    |  left: 50%;
-    |  transform: translate(-50%, -50%);
-    |}
+  | Anies' Listings
 
 block content
-  .space-y-8
-    section#hero.w-full.relative(x-data class="h-[40vh] md:h-[50vh]")
-        img.h-full.w-full.object-cover(:src="$store.home.hero.filename")
-        .p-4.bg-white.text-center.absolutely-centered.opacity-80.rounded-lg(
-          class="font-serif shadow"
-        )
-          h1.font-semibold.text-xl.uppercase.tracking-widest.font-semibold(
-          class="font-serif rounded-lg shadow md:text-3xl"
-          x-text="$store.home.hero_text"
-        )
-          h3.font-semibold.text-base.uppercase.tracking-widest.font-semibold(
-          class="font-serif rounded-lg shadow md:text-xl"
-          x-text="$store.home.hero_sub_text"
-        )
+  .container.mx-auto
+    .flex.flex-wrap
+      for listing in pagination.items
+          a.m-4(href='/'+listing.full_slug)
+            .h-96.w-96.flex.flex-col.justify-between.bg-white.bg-center.text-gray-800.shadow-lg.overflow-hidden.rounded-lg(
+              style={"background-image": `url(${listing.content.thumbnail.filename})`}
+            )
 
-    section#quote.h-24.flex.flex-col.items-center.justify-center.text-center(x-data class="md:h-36")
-      h2.px-4.text-2xl.tracking-wider.font-bold(class="font-serif md:text-3xl" x-text="$store.home.quote_section") 
+              .flex.items-center.justify-between.mx-4
+                .flex.items-center.px-2.py-1.text-xs.font-bold.text-white.bg-red-600.rounded.shadow.bg-opacity-95= `RM ${listing.content.price}`
+                .flex.flex-col-reverse.w-10.h-12.p-2.font-bold.text-center.text-white.bg-red-600.rounded-b-full.shadow $
 
-    - 
-      var components = { 
-        TEXT: 'JustText', 
-        HEADER_AND_TEXT: 'TextWithHeader', 
-        IMAGE: 'Image' 
-      }
-    section#content.container.mx-auto(x-data)
-      .mt-12.text-gray-800.border-t-2
-        hr
-      template(x-for="section in $store.home.body")
-        .flex.flex-wrap
-          template(x-for="item in section.body")
-            div.prose-xl(class="md:prose-2xl md:w-1/2")
-              template(x-if=`item.component === '${components.TEXT}'`) 
-                p.p-4(class="mx-2 md:mx-8" x-text=`item.body`)
-              template(x-if=`item.component === '${components.HEADER_AND_TEXT}'`)
-                div.p-4(class="mx-2 md:mx-8")
-                  h3(x-text="item.heading") 
-                  p(x-text="item.body")
-              template(x-if=`item.component === '${components.IMAGE}'`)
-                img.p-1.rounded(:src='item.adv.image' width=800 height=500)
+              .flex.flex-col.p-4.mb-8.mr-4.bg-white.shadow-md.bg-opacity-95.rounded-r-xl
+                h3.pb-2.text-xl.font-bold= listing.content.name
+                  .flex.space-x-2.justify-center.uppercase.text-xs
 
-    section#social
+                    div.space-x-1
+                      span.font-bold= listing.content.beds
+                      span.font-thin.tracking-wider Beds
+                    span |
 
-    section#gallery.w-full
-      include ../_includes/gallery
-      .spacer.mb-16(class="md:mb-0")
+                    div.space-x-1
+                      span.font-bold= listing.content.baths
+                      span.font-thin.tracking-wider Baths
+                    span |
 
-block alpine-data
-  | window.rawData = !{JSON.stringify(home)}
+                    div.space-x-1
+                      span.font-bold= listing.content.parking
+                      span.font-thin.tracking-wider Parking
+                    span |
+                    
+                    div.space-x-1
+                      span.font-bold= listing.content.sqft
+                      span.font-thin.tracking-wider SQFT
+
+
+
+
+//- <div class="flex flex-col justify-between overflow-hidden text-gray-800 bg-white bg-center shadow-md cursor-pointer w-72 sm:w-96 h-96" 
+  //- style="background-image:url('https://placeimg.com/480/480/any')">
+//-     <div class="flex items-center justify-between pr-8 ml-4">
+//-       <div class="flex items-center px-2 py-1 text-xs font-bold text-white bg-red-600 rounded shadow bg-opacity-95">Some information</div>
+//-       <div class="flex flex-col-reverse w-10 h-12 p-2 font-bold text-center text-white bg-red-600 rounded-b-full shadow">%</div>
+//-     </div>
+//-     <div class="flex flex-col p-4 mb-8 mr-4 bg-white shadow-md bg-opacity-95 rounded-r-xl">
+//-       <h3 class="pb-2 text-xl font-bold">Happy Nowruz 1400</h3>
+//-       <p class="text-sm text-gray-500 truncate">Nowruz is the Persian New Year, which begins on the Spring equinox, marking the first day of Farvardin, the first month of the Iranian solar calendar.</p>
+//-       <div class="flex items-center justify-between">
+//-         <span class="text-xs text-gray-400">Have a nice year...</span>
+//-       </div>
+//-     </div>
+//-   </div>
+  
