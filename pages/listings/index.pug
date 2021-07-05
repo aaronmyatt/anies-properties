@@ -9,56 +9,72 @@ block title
   | Anies' Listings
 
 block content
-  .container.mx-auto
-    .flex.flex-wrap
+  .container.mx-auto.space-y-8(class="mt-8 sm:mt-6")
+    h1.font-semibold.text-xl.uppercase.tracking-widest.font-semibold.text-center(
+      class="font-serif md:text-3xl"
+    ) For Sale
+
+    +page-links(true)
+    
+    .grid.justify-items-center(class="grid-cols-1 gap-8 xl:gap-0 sm:grid-cols-2 lg:grid-cols-3")
       for listing in pagination.items
-          a.m-4(href='/'+listing.full_slug)
-            .h-96.w-96.flex.flex-col.justify-between.bg-white.bg-center.text-gray-800.shadow-lg.overflow-hidden.rounded-lg(
-              style={"background-image": `url(${listing.content.thumbnail.filename})`}
-            )
+          a(href='/'+listing.full_slug)
+            +listing-card(listing)
 
-              .flex.items-center.justify-between.mx-4
-                .flex.items-center.px-2.py-1.text-xs.font-bold.text-white.bg-red-600.rounded.shadow.bg-opacity-95= `RM ${listing.content.price}`
-                .flex.flex-col-reverse.w-10.h-12.p-2.font-bold.text-center.text-white.bg-red-600.rounded-b-full.shadow $
+    +page-links
+mixin page-links(isTop=false)
+  .flex.space-x-2.justify-center(class={'md:hidden': isTop})
+    for page, index in pagination.pages
+      .space-x-1
+        a(href=pagination.hrefs[index])
+          span.font-bold= index+1
+      if index !== (pagination.pages.length - 1)
+        span |
 
-              .flex.flex-col.p-4.mb-8.mr-4.bg-white.shadow-md.bg-opacity-95.rounded-r-xl
-                h3.pb-2.text-xl.font-bold= listing.content.name
-                  .flex.space-x-2.justify-center.uppercase.text-xs
+mixin listing-card(listing)
+  .flex.flex-col.justify-between.bg-white.bg-center.text-gray-800.shadow-lg.overflow-hidden.rounded-lg(
+    style={"background-image": `url(${listing.content.thumbnail.filename})`}
+    class="h-96 w-96 sm:h-72 sm:w-72 md:h-96 md:w-96 lg:h-80 lg:w-80 xl:h-96 xl:w-96"
+  )
+    .flex.items-center.justify-between.mx-4
+      .flex.items-center.px-2.py-1.text-xs.font-bold.text-white.bg-red-600.rounded.shadow.bg-opacity-95= `RM ${listing.content.price}`
+      .flex.flex-col-reverse.w-10.h-12.p-2.font-bold.text-white.bg-red-600.rounded-b-full.shadow $
 
-                    div.space-x-1
-                      span.font-bold= listing.content.beds
-                      span.font-thin.tracking-wider Beds
-                    span |
+    .flex.flex-col.p-4.mb-8.mr-4.bg-white.shadow-md.bg-opacity-95.rounded-r-xl
+      h3.pb-2.text-xl.font-bold= listing.content.name
+        .flex.space-x-2.justify-center.uppercase.text-xs
 
-                    div.space-x-1
-                      span.font-bold= listing.content.baths
-                      span.font-thin.tracking-wider Baths
-                    span |
+          div.space-x-1
+            span.font-bold= listing.content.beds
+            span.font-thin.tracking-wider Beds
+          span |
 
-                    div.space-x-1
-                      span.font-bold= listing.content.parking
-                      span.font-thin.tracking-wider Parking
-                    span |
-                    
-                    div.space-x-1
-                      span.font-bold= listing.content.sqft
-                      span.font-thin.tracking-wider SQFT
+          div.space-x-1
+            span.font-bold= listing.content.baths
+            span.font-thin.tracking-wider Baths
+          span |
 
+          div.space-x-1
+            span.font-bold= listing.content.parking
+            span.font-thin.tracking-wider Parking
+          span |
+          
+          div.space-x-1
+            span.font-bold= listing.content.sqft
+            span.font-thin.tracking-wider SQFT
 
-
-
-//- <div class="flex flex-col justify-between overflow-hidden text-gray-800 bg-white bg-center shadow-md cursor-pointer w-72 sm:w-96 h-96" 
-  //- style="background-image:url('https://placeimg.com/480/480/any')">
-//-     <div class="flex items-center justify-between pr-8 ml-4">
-//-       <div class="flex items-center px-2 py-1 text-xs font-bold text-white bg-red-600 rounded shadow bg-opacity-95">Some information</div>
-//-       <div class="flex flex-col-reverse w-10 h-12 p-2 font-bold text-center text-white bg-red-600 rounded-b-full shadow">%</div>
-//-     </div>
-//-     <div class="flex flex-col p-4 mb-8 mr-4 bg-white shadow-md bg-opacity-95 rounded-r-xl">
-//-       <h3 class="pb-2 text-xl font-bold">Happy Nowruz 1400</h3>
-//-       <p class="text-sm text-gray-500 truncate">Nowruz is the Persian New Year, which begins on the Spring equinox, marking the first day of Farvardin, the first month of the Iranian solar calendar.</p>
-//-       <div class="flex items-center justify-between">
-//-         <span class="text-xs text-gray-400">Have a nice year...</span>
-//-       </div>
-//-     </div>
-//-   </div>
-  
+  //- <div class="flex flex-col justify-between overflow-hidden text-gray-800 bg-white bg-center shadow-md cursor-pointer w-72 sm:w-96 h-96" 
+    //- style="background-image:url('https://placeimg.com/480/480/any')">
+  //-     <div class="flex items-center justify-between pr-8 ml-4">
+  //-       <div class="flex items-center px-2 py-1 text-xs font-bold text-white bg-red-600 rounded shadow bg-opacity-95">Some information</div>
+  //-       <div class="flex flex-col-reverse w-10 h-12 p-2 font-bold text-center text-white bg-red-600 rounded-b-full shadow">%</div>
+  //-     </div>
+  //-     <div class="flex flex-col p-4 mb-8 mr-4 bg-white shadow-md bg-opacity-95 rounded-r-xl">
+  //-       <h3 class="pb-2 text-xl font-bold">Happy Nowruz 1400</h3>
+  //-       <p class="text-sm text-gray-500 truncate">Nowruz is the Persian New Year, which begins on the Spring equinox, marking the first day of Farvardin, the first month of the Iranian solar calendar.</p>
+  //-       <div class="flex items-center justify-between">
+  //-         <span class="text-xs text-gray-400">Have a nice year...</span>
+  //-       </div>
+  //-     </div>
+  //-   </div>
+    
