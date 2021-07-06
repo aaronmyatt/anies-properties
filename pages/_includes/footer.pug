@@ -1,23 +1,29 @@
+- var svgClasses = `class="w-6 h-6"`
+- var arrowRightIcon = `<svg ${svgClasses} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>`
+- var facebookIcon = `<svg ${svgClasses} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 408.8 408.8"><path d="M354 0H55C25 0 0 25 0 55v299c0 30 25 55 55 55h147l1-146h-38c-5 0-9-4-9-9v-47c0-5 4-9 8-9h38v-46c0-53 33-81 80-81h38c5 0 9 4 9 9v39c0 5-4 9-9 9h-23c-26 0-31 12-31 30v40h56c6 0 10 4 9 10l-5 47c-1 4-5 8-9 8h-51v146h88c30 0 55-25 55-55V55c0-30-25-55-55-55z" fill="#475993"/></svg>`
+- var whatsappIcon = `<svg ${svgClasses} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 455.7 455.7"><path fill="#1bd741" d="M0 0h456v456H0z"/><g fill="#fff"><path d="M68 387l23-79A159 159 0 01228 68a159 159 0 11-78 298l-82 21zm86-50l5 3a132 132 0 10-42-41l3 5-13 46 47-13z"/><path d="M183 153h-10l-9 3c-5 4-13 13-15 24-4 16 2 36 16 56 15 20 42 52 91 66 15 4 28 1 37-5 7-5 13-12 14-21l2-8c1-2-1-5-3-6l-35-16c-2-1-5 0-6 2l-14 17c-1 2-3 2-4 2-10-4-41-17-58-50v-4l13-16c2-1 2-3 1-5l-15-35-5-4z"/></g></svg>`
+- var instagramIcon = `<svg ${svgClasses} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 551 551"><linearGradient id="a" gradientUnits="userSpaceOnUse" x1="275.5" y1="4.6" x2="275.5" y2="549.7" gradientTransform="matrix(1 0 0 -1 0 554)"><stop offset="0" stop-color="#e09b3d"/><stop offset=".3" stop-color="#c74c4d"/><stop offset=".6" stop-color="#c21975"/><stop offset="1" stop-color="#7024c4"/></linearGradient><path d="M386.9 0H164.2A164.3 164.3 0 000 164.2v222.7C0 477.4 73.6 551 164.2 551h222.7C477.4 551 551 477.4 551 387V164.2C551 73.6 477.4 0 387 0zm108.7 386.9c0 60-48.7 108.7-108.7 108.7H164.2c-60 0-108.8-48.7-108.8-108.7V164.2c0-60 48.7-108.8 108.8-108.8h222.7c60 0 108.7 48.7 108.7 108.8v222.7z" fill="url(#a)"/><linearGradient id="b" gradientUnits="userSpaceOnUse" x1="275.5" y1="4.6" x2="275.5" y2="549.7" gradientTransform="matrix(1 0 0 -1 0 554)"><stop offset="0" stop-color="#e09b3d"/><stop offset=".3" stop-color="#c74c4d"/><stop offset=".6" stop-color="#c21975"/><stop offset="1" stop-color="#7024c4"/></linearGradient><path d="M275.5 133C197 133 133 197 133 275.5S197 418 275.5 418 418 354.1 418 275.5 354.1 133 275.5 133zm0 229.6a87 87 0 110-174.2 87 87 0 010 174.2z" fill="url(#b)"/><linearGradient id="c" gradientUnits="userSpaceOnUse" x1="418.3" y1="4.6" x2="418.3" y2="549.7" gradientTransform="matrix(1 0 0 -1 0 554)"><stop offset="0" stop-color="#e09b3d"/><stop offset=".3" stop-color="#c74c4d"/><stop offset=".6" stop-color="#c21975"/><stop offset="1" stop-color="#7024c4"/></linearGradient><circle cx="418.3" cy="134.1" r="34.1" fill="url(#c)"/></svg>`
+
 footer.hidden(class="md:block")
     .justify-center(class="md:flex")
-        .mt-10.p-6.flex.justify-between.items-center(class="w-3/4")
-            .flex.flex-col
-                p Anies Ahmad
-                p Some Address
-                p +60173353911
-                p anies.ahmad@hartamas.com
-            .flex.flex-col
-                p Work with Anies
-                a Schedule Free Consultation
-                a Home Search
-                a Recent Sales
-            .flex.flex-col
-                a(href="/") LOGO
-                p Connect With Me
-                .flex
-                    a FB
-                    a in
-                    a Email
+        .mt-10.p-6.flex.justify-between.items-center(class="w-2/4")
+            .flex.flex-col.space-y-4
+                a.uppercase.tracking-widest.font-thin Anies Ahmad
+                p.text-gray-500.underline +6017 335 3911
+                p.text-gray-500.underline anies.ahmad@hartamas.com
+            .flex.flex-col.space-y-4
+                a.flex.items-center.space-x-4.border.border-2.border-gray-800.p-4(href="/contact")
+                    span.uppercase.tracking-widest.font-thin Work with Anies
+                    | !{arrowRightIcon}
+                a.text-gray-500.underline(href="/contact") Schedule Free Consultation
+                a.text-gray-500.underline(href="/listings") Home Search
+            .flex.flex-col.items-center.space-y-4
+                a.uppercase.tracking-widest.font-thin(href="/") Anies.Homes
+                p.text-gray-500 Connect With Me
+                .flex.space-x-4
+                    a !{facebookIcon}
+                    a !{whatsappIcon}
+                    a !{instagramIcon}
 .hidden.flex-col.items-center.justify-center.mt-16(class="md:flex")
-    p Copyright 2021
-    p Anies Ahmad, Hartamas, -negotiator number-?
+    p.text-gray-500.text-sm Copyright 2021
+    p.text-gray-500.text-sm Anies Ahmad, Hartamas, -negotiator number-?
