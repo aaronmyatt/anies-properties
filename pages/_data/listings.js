@@ -2,7 +2,7 @@ const storyblokMultiFetcher = require('../../utils/storyblokMultiFetcher')
 
 const STORYBLOK_QUERY_STRING = {starts_with: 'listing'}
 
-async function fetchingListingData(){
+async function fetchingData(){
   return storyblokMultiFetcher({query: STORYBLOK_QUERY_STRING})
     .then(function(stories){
       return stories
@@ -12,4 +12,4 @@ async function fetchingListingData(){
     })
 }
 
-module.exports = fetchingListingData
+module.exports = fetchingData

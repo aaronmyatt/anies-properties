@@ -1,6 +1,6 @@
 const storyblokDataFetcher = require('../../utils/storyblokDataFetcher')
 
-const STORYBLOK_SLUG = 'home'
+const STORYBLOK_SLUG = 'contact'
 
 async function fetchData(){
   return storyblokDataFetcher({slug: STORYBLOK_SLUG})

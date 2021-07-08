@@ -1,3 +1,13 @@
+mixin content-image
+    img.p-1.rounded(
+      :src='item.adv.image'
+      :class=`{
+          'w-1/4': item.size.small,
+          'w-1/2': item.size.medium
+        }`
+    )
+
+
 - 
     var components = { 
         TEXT: 'JustText', 
@@ -21,4 +31,4 @@ div(x-data)
                             p.whitespace-pre-wrap(x-text="item.body")
 
                     template(x-if=`item.component === '${components.IMAGE}'`)
-                        img.p-1.rounded(:src='item.adv.image' width=800 height=500)
+                        +content-image
