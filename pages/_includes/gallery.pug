@@ -25,13 +25,11 @@ mixin leftRightGalleryNavContainer(leftOrRight)
         }}`
     x-init="images = $store.gallery; selectedImage = $store.gallery.slice(0, 1)"
 )
-
     template(
         x-for="image in selectedImage" :key="image.id"
     )
         .relative.flex.flex-col.items-center
-            img(:src="image.filename" width="1000" height="1000"
-            )
+            img(x-sb-img.360.220="image.filename" x-sb-img:md.1000.600="image.filename")
             +leftRightGalleryNavContainer('right')
                 include ./svg/chevron-right
             +leftRightGalleryNavContainer('left')
@@ -44,5 +42,4 @@ mixin leftRightGalleryNavContainer(leftOrRight)
                 class="cursor-pointer hover:opacity-100"
                 :class="{'opacity-90': selectedImage.includes(image), 'opacity-40': !selectedImage.includes(image) }"
             )
-                //- TODO: implement $sb-image magic helper
-                img(:src="image.filename" width="150" height="150")
+                img(x-sb-img.80.60="image.filename" x-sb-img:sm.150.100="image.filename")

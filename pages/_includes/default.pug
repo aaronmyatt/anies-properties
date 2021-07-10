@@ -32,6 +32,40 @@ html(lang="en")
       
     script.
       document.addEventListener('alpine:init', function() {
+        const IMAGE_SERVICE_HOST = 'img2.storyblok.com'
+
+        const breakpoints = {
+          null: true,
+          sm: window.matchMedia('(min-width: 640px)').matches,
+          md: window.matchMedia('(min-width: 768px)').matches,
+          lg: window.matchMedia('(min-width: 1024px)').matches,
+          xl: window.matchMedia('(min-width: 1280px)').matches,
+          '2xl': window.matchMedia('(min-width: 1536px)').matches,
+        }
+
+        function setDimensions(path, width, height){
+          return `/${width || 0}x${height || 0}${path}`
+        }
+
+        Alpine.directive('sb-img', (
+          el, 
+          { value, modifiers, expression }, 
+          { Alpine, effect, cleanup, evaluate }
+        ) => {
+          if(breakpoints[value]){
+            const [width, height] = modifiers
+            let url = new URL(evaluate(expression))
+            url.host = IMAGE_SERVICE_HOST
+            url.pathname = setDimensions(url.pathname, width, height)
+            el.src = url
+            el.width = width
+            el.height = height
+          }
+        })
+
+      })
+
+      document.addEventListener('alpine:init', function() {
         if(window.rawData){
           var data = window.rawData
 
