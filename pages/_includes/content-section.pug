@@ -2,8 +2,8 @@ mixin content-image
     img.p-1.rounded(
       :src='item.adv.image'
       :class=`{
-          'w-1/4': item.size.small,
-          'w-1/2': item.size.medium
+          'w-1/4': item.size && item.size.small,
+          'w-1/2': item.size && item.size.medium
         }`
     )
 
