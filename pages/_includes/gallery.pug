@@ -36,7 +36,7 @@ mixin leftRightGalleryNavContainer(leftOrRight)
                 include ./svg/chevron-left
             p.text-xl.py-2(x-text="image.title")
     .flex
-        template(x-for="image in images" :key="image.id")
+        template(x-for="image in images.slice(0,6)" :key="image.id")
             div(
                 @click="selectedImage.pop(); selectedImage.push(image)"
                 class="cursor-pointer hover:opacity-100"
