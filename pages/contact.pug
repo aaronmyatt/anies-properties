@@ -13,13 +13,6 @@ block append head
     |}
 
 block content
-  - var svgClasses = `class="w-16"`
-  - var facebookIcon = `<svg ${svgClasses} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 408.8 408.8"><path d="M354 0H55C25 0 0 25 0 55v299c0 30 25 55 55 55h147l1-146h-38c-5 0-9-4-9-9v-47c0-5 4-9 8-9h38v-46c0-53 33-81 80-81h38c5 0 9 4 9 9v39c0 5-4 9-9 9h-23c-26 0-31 12-31 30v40h56c6 0 10 4 9 10l-5 47c-1 4-5 8-9 8h-51v146h88c30 0 55-25 55-55V55c0-30-25-55-55-55z" fill="#475993"/></svg>`
-  - var whatsappIcon = `<svg ${svgClasses} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 455.7 455.7"><path fill="#1bd741" d="M0 0h456v456H0z"/><g fill="#fff"><path d="M68 387l23-79A159 159 0 01228 68a159 159 0 11-78 298l-82 21zm86-50l5 3a132 132 0 10-42-41l3 5-13 46 47-13z"/><path d="M183 153h-10l-9 3c-5 4-13 13-15 24-4 16 2 36 16 56 15 20 42 52 91 66 15 4 28 1 37-5 7-5 13-12 14-21l2-8c1-2-1-5-3-6l-35-16c-2-1-5 0-6 2l-14 17c-1 2-3 2-4 2-10-4-41-17-58-50v-4l13-16c2-1 2-3 1-5l-15-35-5-4z"/></g></svg>`
-  - var instagramIcon = `<svg ${svgClasses} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 551 551"><linearGradient id="a" gradientUnits="userSpaceOnUse" x1="275.5" y1="4.6" x2="275.5" y2="549.7" gradientTransform="matrix(1 0 0 -1 0 554)"><stop offset="0" stop-color="#e09b3d"/><stop offset=".3" stop-color="#c74c4d"/><stop offset=".6" stop-color="#c21975"/><stop offset="1" stop-color="#7024c4"/></linearGradient><path d="M386.9 0H164.2A164.3 164.3 0 000 164.2v222.7C0 477.4 73.6 551 164.2 551h222.7C477.4 551 551 477.4 551 387V164.2C551 73.6 477.4 0 387 0zm108.7 386.9c0 60-48.7 108.7-108.7 108.7H164.2c-60 0-108.8-48.7-108.8-108.7V164.2c0-60 48.7-108.8 108.8-108.8h222.7c60 0 108.7 48.7 108.7 108.8v222.7z" fill="url(#a)"/><linearGradient id="b" gradientUnits="userSpaceOnUse" x1="275.5" y1="4.6" x2="275.5" y2="549.7" gradientTransform="matrix(1 0 0 -1 0 554)"><stop offset="0" stop-color="#e09b3d"/><stop offset=".3" stop-color="#c74c4d"/><stop offset=".6" stop-color="#c21975"/><stop offset="1" stop-color="#7024c4"/></linearGradient><path d="M275.5 133C197 133 133 197 133 275.5S197 418 275.5 418 418 354.1 418 275.5 354.1 133 275.5 133zm0 229.6a87 87 0 110-174.2 87 87 0 010 174.2z" fill="url(#b)"/><linearGradient id="c" gradientUnits="userSpaceOnUse" x1="418.3" y1="4.6" x2="418.3" y2="549.7" gradientTransform="matrix(1 0 0 -1 0 554)"><stop offset="0" stop-color="#e09b3d"/><stop offset=".3" stop-color="#c74c4d"/><stop offset=".6" stop-color="#c21975"/><stop offset="1" stop-color="#7024c4"/></linearGradient><circle cx="418.3" cy="134.1" r="34.1" fill="url(#c)"/></svg>`
-  - var linkedinIcon = `<svg ${svgClasses} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 382 382" data-iorad-extension="firefox"><path d="M347.4 0H34.6C15.5 0 0 15.5 0 34.6v312.8C0 366.5 15.5 382 34.6 382h312.8c19.1 0 34.6-15.5 34.6-34.6V34.6C382 15.5 366.5 0 347.4 0zM118.2 329.8a10 10 0 01-10 10.1H65.3a10 10 0 01-10-10V150.3a10 10 0 0110-10h42.9a10 10 0 0110 10v179.4zM86.7 123.4a40.7 40.7 0 110-81.3 40.7 40.7 0 010 81.3zM342 330.7c0 5-4.1 9.2-9.2 9.2h-46a9.2 9.2 0 01-9.2-9.2v-84.2c0-12.6 3.7-55-32.8-55-28.3 0-34 29-35.2 42v97.2c0 5-4.2 9.2-9.3 9.2h-44.4a9.2 9.2 0 01-9.3-9.2V149.6c0-5.1 4.2-9.3 9.3-9.3h44.4c5.1 0 9.3 4.2 9.3 9.3v15.6c10.5-15.7 26-27.9 59.3-27.9 73.5 0 73.1 68.8 73.1 106.5v86.9z" fill="#0077b7"/></svg>`
-
-
   .space-y-8
     section#hero.w-full.relative(x-data class="h-[40vh] md:h-[50vh]")
         img.h-full.w-full.object-cover(:src="$store.page.hero.filename")
@@ -46,10 +39,8 @@ block content
                 p If you have any questions about the Klang Valley real estate market, I'd love to chat. Reach out below and I'll get back to you shortly.
               #social-contact.mx-auto
                 .flex.space-x-8
-                  a !{facebookIcon}
-                  a !{whatsappIcon}
-                  a !{instagramIcon}
-                  a !{linkedinIcon}
+                  - var svgClasses = `class="w-16 h-16"`
+                  include _includes/social-icons.pug
               #contact
                 form.space-y-4
                   .grid.gap-4.grid-cols-4
