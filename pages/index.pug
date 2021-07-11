@@ -16,17 +16,18 @@ block content
   .space-y-8
     section#hero.w-full.relative(x-data class="h-[40vh] md:h-[50vh]")
         img.h-full.w-full.object-cover(:src="$store.page.hero.filename")
-        .p-4.bg-white.text-center.absolutely-centered.opacity-80.rounded-lg(
-          class="font-serif shadow"
-        )
-          h1.text-xl.uppercase.tracking-widest(
-          class="md:text-3xl"
-          x-text="$store.page.hero_text"
-        )
-          h3.text-base.uppercase.tracking-widest(
-          class="md:text-xl"
-          x-text="$store.page.hero_sub_text"
-        )
+        template(x-if="$store.page.hero_text")
+          .p-4.bg-white.text-center.absolutely-centered.opacity-80.rounded-lg(
+            class="font-serif shadow"
+          )
+            h1.text-xl.uppercase.tracking-widest(
+              class="md:text-3xl"
+              x-text="$store.page.hero_text"
+            )
+            h3.text-base.uppercase.tracking-widest(
+              class="md:text-xl"
+              x-text="$store.page.hero_sub_text"
+            ) 
 
     section#quote.h-24.flex.flex-col.items-center.justify-center.text-center(x-data class="md:h-36")
       h2.px-4.text-2xl.tracking-wider(class="font-serif md:text-3xl" x-text="$store.page.quote_section") 
