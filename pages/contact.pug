@@ -34,14 +34,14 @@ block content
           #photo.col-span-1.hidden(class="sm:block")
             img(src="https://a.storyblok.com/f/117780/848x848/e57b7d3364/aniesheadshot.jpeg")
           div.mx-2(class="col-span-full sm:col-span-3")
-            .flex.flex-col.space-y-8
+            .flex.flex-col.space-y-12
               div
                 p If you have any questions about the Klang Valley real estate market, I'd love to chat. Reach out below and I'll get back to you shortly.
-              #social-contact.mx-auto
-                .flex.space-x-8
+              #social-contact
+                .flex.space-x-10
                   - var svgClasses = `class="w-16 h-16"`
                   include _includes/social-icons.pug
-              #contact
+              #contact.hidden
                 form.space-y-4
                   .grid.gap-4.grid-cols-4
                     label.col-span-1(for="contact-name") Name
