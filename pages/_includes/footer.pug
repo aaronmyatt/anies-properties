@@ -9,8 +9,8 @@ footer.hidden(class="md:block")
         .mt-10.p-6.flex.justify-between.items-center(class="md:w-full lg:w-3/4 xl:w-2/4")
             .flex.flex-col.space-y-4
                 a.uppercase.tracking-widest.font-thin Anies Ahmad
-                p.text-gray-500.underline +6017 335 3911
-                p.text-gray-500.underline anies.ahmad@hartamas.com
+                a.text-gray-500.underline(href="tel:+60173353911") +6017 335 3911
+                a.text-gray-500.underline(href="mailto:anies.properties@gmail.com") anies.properties@gmail.com
             .flex.flex-col.space-y-4
                 a.flex.items-center.space-x-4.border.border-2.border-gray-800.p-4(href="/contact")
                     span.uppercase.tracking-widest.font-thin Work with Anies
@@ -21,9 +21,8 @@ footer.hidden(class="md:block")
                 a.uppercase.tracking-widest.font-thin(href="/") Anies.Homes
                 p.text-gray-500 Connect With Me
                 .flex.space-x-4
-                    a !{facebookIcon}
-                    a !{whatsappIcon}
-                    a !{instagramIcon}
+                    - var svgClasses = `class="w-6"`
+                    include ./social-icons.pug
 .hidden.flex-col.items-center.justify-center.mt-16(class="md:flex")
     p.text-gray-500.text-sm Copyright 2021
     p.text-gray-500.text-sm Anies Ahmad, Hartamas, -negotiator number-?
