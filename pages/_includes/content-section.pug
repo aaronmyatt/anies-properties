@@ -19,7 +19,7 @@ div(x-data)
     template(x-for="section in $store.page.body")
         .flex.flex-wrap
             template(x-for="item in section.body")
-                div.prose-md(class="md:prose-xl" :class=`{
+                div.prose(:class=`{
                     'md:w-1/2': section.body.length > 1
                 }`)
                 
