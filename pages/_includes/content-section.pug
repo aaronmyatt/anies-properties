@@ -17,7 +17,7 @@ mixin content-image
     }
 div(x-data)
     template(x-for="section in $store.page.body")
-        .flex.flex-wrap
+        .flex.flex-wrap.items-center.justify-center
             template(x-for="item in section.body")
                 div.prose(:class=`{
                     'md:w-1/2': section.body.length > 1
