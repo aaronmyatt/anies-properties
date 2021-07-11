@@ -19,17 +19,17 @@ block content
         .p-4.bg-white.text-center.absolutely-centered.opacity-80.rounded-lg(
           class="font-serif shadow"
         )
-          h1.font-semibold.text-xl.uppercase.tracking-widest.font-semibold(
+          h1.text-xl.uppercase.tracking-widest(
           class="md:text-3xl"
           x-text="$store.page.hero_text"
         )
-          h3.font-semibold.text-base.uppercase.tracking-widest.font-semibold(
+          h3.text-base.uppercase.tracking-widest(
           class="md:text-xl"
           x-text="$store.page.hero_sub_text"
         )
 
     section#quote.h-24.flex.flex-col.items-center.justify-center.text-center(x-data class="md:h-36")
-      h2.px-4.text-2xl.tracking-wider.font-bold(class="font-serif md:text-3xl" x-text="$store.page.quote_section") 
+      h2.px-4.text-2xl.tracking-wider(class="font-serif md:text-3xl" x-text="$store.page.quote_section") 
 
     section#content.container.mx-auto(x-data)
       .mt-12.text-gray-800.border-t-2
@@ -39,7 +39,7 @@ block content
     section#social
 
     section#gallery.w-full
-      h2.text-center.font-semibold.text-lg.tracking-widest.font-semibold A few of Anies' listings
+      h2.text-center.text-lg.tracking-widest A few of Anies' listings
       include _includes/gallery
       .spacer.mb-16(class="md:mb-0")
 

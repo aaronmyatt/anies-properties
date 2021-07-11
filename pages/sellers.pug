@@ -19,17 +19,17 @@ block content
         .p-4.bg-white.text-center.absolutely-centered.opacity-80.rounded-lg(
           class="font-serif shadow"
         )
-          h1.font-semibold.text-xl.uppercase.tracking-widest.font-semibold(
+          h1.text-xl.uppercase.tracking-widest(
           class="font-serif rounded-lg shadow md:text-3xl"
           x-text="$store.home.hero_text"
         )
-          h3.font-semibold.text-base.uppercase.tracking-widest.font-semibold(
+          h3.text-base.uppercase.tracking-widest(
           class="font-serif rounded-lg shadow md:text-xl"
           x-text="$store.home.hero_sub_text"
         )
 
     section#quote.h-24.flex.flex-col.items-center.justify-center.text-center(x-data class="md:h-36")
-      h2.px-4.text-2xl.tracking-wider.font-bold(class="font-serif md:text-3xl" x-text="$store.home.quote_section") 
+      h2.px-4.text-2xl.tracking-wider(class="font-serif md:text-3xl" x-text="$store.home.quote_section") 
 
     - 
       var components = { 
