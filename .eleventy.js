@@ -11,6 +11,10 @@ module.exports = function (eleventyConfig) {
   })
 
   eleventyConfig.addPassthroughCopy({
+    'CNAME': './CNAME',
+  })
+
+  eleventyConfig.addPassthroughCopy({
     './js/*.js': './js',
   })
 
