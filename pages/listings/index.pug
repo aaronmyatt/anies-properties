@@ -34,34 +34,37 @@ mixin page-links(isTop=false)
 mixin listing-card(listing)
   .flex.flex-col.justify-between.bg-white.bg-center.text-gray-800.shadow-lg.overflow-hidden.rounded-lg(
     style={"background-image": `url(${listing.content.thumbnail.filename})`}
-    class="h-96 w-96 sm:h-72 sm:w-72 md:h-96 md:w-96 lg:h-80 lg:w-80 xl:h-96 xl:w-96"
+    class="hover:opacity-80 h-96 w-96 sm:h-72 sm:w-72 md:h-96 md:w-96 lg:h-80 lg:w-80 xl:h-96 xl:w-96"
   )
     .flex.items-center.justify-between.mx-4
-      .flex.items-center.px-2.py-1.text-xs.text-white.bg-red-600.rounded.shadow.bg-opacity-95= `RM ${listing.content.price}`
-      .flex.flex-col-reverse.w-10.h-12.p-2.text-white.bg-red-600.rounded-b-full.shadow $
+      - 
+        var price = new Intl.NumberFormat({ style: 'currency', currency: 'MYR' }).format(listing.content.price)
+      .flex.items-center.px-2.py-1.text-white.bg-red-600.rounded.shadow.bg-opacity-90= `RM ${price}`
+      //- .flex.flex-col-reverse.w-10.h-12.p-2.text-white.bg-red-600.rounded-b-full.shadow $
 
     .flex.flex-col.p-4.mb-8.mr-4.bg-white.shadow-md.bg-opacity-95.rounded-r-xl
       h3.pb-2.text-xl= listing.content.name
-        .flex.space-x-2.justify-center.uppercase.text-xs
+        .flex.space-x-2.uppercase.text-xs
 
           div.space-x-1
             span= listing.content.beds
-            span.font-thin.tracking-wider Beds
+            span.text-gray-500.tracking-wider Beds
           span |
 
           div.space-x-1
             span= listing.content.baths
-            span.font-thin.tracking-wider Baths
+            span.text-gray-500.tracking-wider Baths
           span |
 
-          div.space-x-1
-            span= listing.content.parking
-            span.font-thin.tracking-wider Parking
-          span |
+          if listing.content.parking
+            div.space-x-1
+              span= listing.content.parking
+              span.text-gray-500.tracking-wider Parking
+            span |
           
           div.space-x-1
             span= listing.content.sqft
-            span.font-thin.tracking-wider SQFT
+            span.text-gray-500.tracking-wider SQFT
 
   //- <div class="flex flex-col justify-between overflow-hidden text-gray-800 bg-white bg-center shadow-md cursor-pointer w-72 sm:w-96 h-96" 
     //- style="background-image:url('https://placeimg.com/480/480/any')">
